@@ -1,0 +1,117 @@
+:root {
+  --bg: #fbfbf9;
+  --ink: #1c2430;
+  --muted: #5d6673;
+  --rule: #d9dcdf;
+  --accent: #1f5f7a;
+  --photo-bg: #e4e8ec;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14181d;
+    --ink: #e6e9ec;
+    --muted: #9aa3ad;
+    --rule: #2d343c;
+    --accent: #7fc0d9;
+    --photo-bg: #232a31;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+main {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4rem;
+}
+
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Header */
+header {
+  display: grid;
+  grid-template-columns: 1fr 9.5rem;
+  gap: 2rem;
+  align-items: center;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--ink);
+}
+h1 {
+  margin: 0 0 0.25rem;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.role { margin: 0 0 1.1rem; color: var(--muted); font-style: italic; }
+.contact { margin: 0; padding: 0; list-style: none; font-family: system-ui, sans-serif; font-size: 0.95rem; }
+.contact li { margin: 0.15rem 0; }
+.contact span { display: inline-block; width: 6rem; color: var(--muted); }
+
+.photo {
+  width: 9.5rem;
+  height: 11.5rem;
+  object-fit: cover;
+  border-radius: 3px;
+  background: var(--photo-bg);
+}
+
+/* Sections */
+section { margin-top: 2.25rem; }
+h2 {
+  margin: 0 0 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.25rem 1.5rem;
+  margin-bottom: 1.1rem;
+}
+.when {
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding-top: 0.2rem;
+}
+.what { margin: 0; }
+.what strong { font-weight: 600; }
+.detail { color: var(--muted); font-size: 0.98rem; }
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+@media (max-width: 600px) {
+  header { grid-template-columns: 1fr; }
+  .photo { order: -1; }
+  h1 { font-size: 2rem; }
+  .entry { grid-template-columns: 1fr; }
+  .when { padding-top: 0; }
+}
+
+@media print {
+  body { background: #fff; color: #000; font-size: 10.5pt; }
+  a { color: inherit; text-decoration: none; }
+  main { padding: 0; }
+}
