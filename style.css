@@ -54,9 +54,9 @@ h1 {
   letter-spacing: -0.01em;
 }
 .role { margin: 0 0 1.1rem; color: var(--muted); font-style: italic; }
-.contact { margin: 0; padding: 0; list-style: none; font-family: system-ui, sans-serif; font-size: 0.95rem; }
+.contact { margin: 0; padding: 0; list-style: none; font-family: system-ui, sans-serif; font-size: 0.894em; }
 .contact li { margin: 0.15rem 0; }
-.contact span { display: inline-block; width: 6rem; color: var(--muted); }
+.contact span:first-child { display: inline-block; width: 6rem; color: var(--muted); }
 
 .photo {
   width: 9.5rem;
@@ -85,13 +85,13 @@ h2 {
 }
 .when {
   font-family: system-ui, sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.847em;
   color: var(--muted);
   padding-top: 0.2rem;
 }
 .what { margin: 0; }
 .what strong { font-weight: 600; }
-.detail { color: var(--muted); font-size: 0.98rem; }
+.detail { color: var(--muted); font-size: 0.922em; }
 
 /* Teaching */
 .teaching-role { margin: 0; }
@@ -99,7 +99,7 @@ h2 {
 .teaching-list {
   margin: 0;
   padding-left: 1.2rem;
-  font-size: 0.98rem;
+  font-size: 0.922em;
 }
 .teaching-list li { padding-left: 0.15rem; }
 .course-list { color: var(--muted); }
@@ -130,7 +130,7 @@ footer {
   padding-top: 1rem;
   border-top: 1px solid var(--rule);
   font-family: system-ui, sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.8em;
   color: var(--muted);
 }
 
@@ -148,11 +148,14 @@ footer {
     margin: 18mm 17mm 16mm;
   }
 
+  /* Scale the root so every rem-based size shrinks together, keeping the
+     screen proportions. At 10pt, the 49rem text column is about 173mm,
+     close to the 176mm A4 text width, so lines break as on a wide screen. */
+  html { font-size: 10pt; }
+
   body {
     background: #fff;
     color: #000;
-    font-size: 9.5pt;
-    line-height: 1.4;
     print-color-adjust: exact;
   }
 
@@ -164,32 +167,13 @@ footer {
     padding: 0;
   }
 
-  header {
-    gap: 1.5rem;
-    padding-bottom: 1rem;
-    break-inside: avoid;
-  }
-
-  .photo {
-    width: 7.5rem;
-    height: 9rem;
-  }
-
-  section {
-    margin-top: 1.5rem;
-    break-inside: auto;
-  }
-
-  h2 {
-    margin-bottom: 0.65rem;
-    break-after: avoid;
-  }
-
-  .entry {
-    margin-bottom: 0.75rem;
-    break-inside: avoid;
-  }
-
+  header { break-inside: avoid; }
+  section { break-inside: auto; }
+  h2 { break-after: avoid; }
+  .entry { break-inside: avoid; }
   .course-list li { break-inside: avoid; }
   footer { break-inside: avoid; }
+
+  /* Website-only content, left out of the CV PDF */
+  .screen-only { display: none; }
 }
